@@ -1,11 +1,11 @@
-var express = require('express');
-var app = express();
-var os = require('os');
+var http = require('http');
 
-app.get('/', function(req, res){
-    res.send('This is my node.js/express.js app running on host: ' + os.hostname());
+// Configure our HTTP server to respond with Hello World to all requests.
+var server = http.createServer(function (request, response) {
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.end("Hello World\n");
 });
 
 var port = 80;
-app.listen(port);
+server.listen(port);
 
